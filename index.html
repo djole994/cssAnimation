@@ -3,20 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CSS Animacija</title>
     <style>
-
-        body {            
+        body {
             margin: 30px auto;
             background-color: #050210;
         }
 
         .box {
+            position: relative;
             margin: 200px auto;
             width: 300px;
             height: 300px;
             background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
             border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             animation-name: first_animation;
             animation-duration: 1s;
@@ -33,13 +40,16 @@
             100% {
                 transform: rotate(360deg);
             }
-            
+
         }
 
         .box:after {
             content: '';
             position: absolute;
-            top: 35px; right: 35px; bottom: 35px; left: 35px;
+            top: 35px;
+            right: 35px;
+            bottom: 35px;
+            left: 35px;
             border-radius: 50%;
             background: #050210;
         }
@@ -50,14 +60,42 @@
             height: 100%;
             background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
             border-radius: 50%;
-            filter: blur(50px); 
+            filter: blur(50px);
         }
 
+
+        .krug {
+            height: 50%;
+            width: 50%;
+            background-color: rgb(24, 23, 31);
+            border: 1px solid;
+            border-radius: 50%;
+            animation-name: my-animation;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            z-index: 1000;
+        }
+
+
+
+        @keyframes my-animation {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1.5);
+            }
+
+        }
     </style>
 </head>
 
 <body>
     <div class="box">
         <span></span>
+        <div class="krug">
+
+        </div>
     </div>
 </body>
